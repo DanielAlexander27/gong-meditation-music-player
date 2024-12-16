@@ -1,0 +1,55 @@
+---
+// const audioFile = "/src/assets/audio/its_just_a_burning_memory.mp3";
+const audioFile = "/src/assets/audio/gong_meditation.mp3";
+---
+
+<style>
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+</style>
+
+<div class="flex items-center justify-center min-h-screen">
+    <div
+        id="music-player"
+        class="flex items-center justify-center w-24 h-24 bg-gray-900 rounded-full cursor-pointer hover:bg-gray-800 active:scale-95 transition-transform duration-300 relative"
+    >
+        <div
+            id="pulse-effect"
+            class="absolute inset-0 bg-gray-900 rounded-full opacity-0 pointer-events-none"
+        >
+        </div>
+        <div class="text-white text-xl font-bold pointer-events-none">♫</div>
+    </div>
+    <audio id="audio" src={audioFile}></audio>
+</div>
+
+<script>
+    const musicPlayer = document.getElementById("music-player")!;
+    const pulseEffect = document.getElementById("pulse-effect")!;
+    const audio = document.querySelector("audio")!;
+
+    let isPlaying = false;
+
+    musicPlayer.addEventListener("click", () => {
+        if (isPlaying) {
+            audio.pause();
+            pulseEffect.style.animation = "none";
+        } else {
+            audio.play();
+            pulseEffect.style.animation = "pulse 1.5s infinite";
+        }
+        isPlaying = !isPlaying;
+    });
+</script>

@@ -1,0 +1,28 @@
+<style>
+    @keyframes waveGradient {
+        0% {
+            background-position: 50% 50%;
+        }
+        50% {
+            background-position: 55% 55%;
+        }
+        100% {
+            background-position: 50% 50%;
+        }
+    }
+
+    .animated-bg {
+        background: radial-gradient(
+            circle,
+            rgba(164, 96, 237, 1) 20%,
+            rgba(214, 177, 255, 0.8) 50%,
+            rgba(91, 34, 113, 0.6) 80%
+        );
+        background-size: 200% 200%;
+        animation: waveGradient 5s infinite ease-in-out;
+    }
+</style>
+
+<div class="animated-bg fixed inset-0 z-[-1]">
+    <slot />
+</div>
