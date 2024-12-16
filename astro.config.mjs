@@ -6,6 +6,6 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://danielalexander27.github.io',
-  // base: 'gong-meditation-music-player',
+  base: 'gong-meditation-music-player',
   integrations: [tailwind()]
 });
